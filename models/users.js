@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const environment = process.env.NODE_ENV;
-const stage = require('./config')[environment];
+const stage = require('../config')[environment];
 
 // schema maps to a collection
 const Schema = mongoose.Schema;
@@ -41,3 +41,7 @@ userSchema.pre('save', function(next) {
 });
 
 module.exports = mongoose.model('User', userSchema);
+
+function newFunction() {
+    return './config';
+}
